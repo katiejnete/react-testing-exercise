@@ -55,22 +55,24 @@ it("works when you click on the right arrow", function() {
   // move backwards again
   fireEvent.click(leftArrow);
     
-  // expect last image to show, not the first
+  // expect left arrow to be hidden
   expect(
-    container.querySelector('img[alt="testing image 1"]')
+    leftArrow
   ).not.toBeInTheDocument();
   expect(
-    container.querySelector('img[alt="testing image 3"]')
+    container.querySelector('img[alt="testing image 1"]')
   ).toBeInTheDocument();  
 
   // move fowards again
   fireEvent.click(rightArrow);
+  fireEvent.click(rightArrow);
+  fireEvent.click(rightArrow);
 
-  // expect first image to show, not the last
+  // expect right arrow to be hidden
   expect(
-    container.querySelector('img[alt="testing image 3"]')
+    rightArrow
   ).not.toBeInTheDocument();
   expect(
-    container.querySelector('img[alt="testing image 1"]')
+    container.querySelector('img[alt="testing image 3"]')
   ).toBeInTheDocument();  
 });
